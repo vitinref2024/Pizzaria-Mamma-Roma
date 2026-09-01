@@ -1,0 +1,8 @@
+{
+  "name": "Remix Pizzaria Mamma Roma",
+  "description": "Pizzaria Mamma Roma — tradição desde 2002. Confira nosso cardápio de pizzas salgadas e doces, promoções e combos. Peça pelo WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
