@@ -22,6 +22,11 @@ export const Hero: React.FC<HeroProps> = ({ settings, onExploreMenu }) => {
         <img
           src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=2000&q=85"
           alt="Pizza Tradicional Mamma Roma Forno a Lenha"
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center scale-105 filter brightness-50"
         />
         {/* Layered overlays to guarantee ultra crisp readability */}
@@ -65,6 +70,11 @@ export const Hero: React.FC<HeroProps> = ({ settings, onExploreMenu }) => {
                 <img
                   src={settings.logo || '/logo.jpg'}
                   alt="Pizzaria Mamma Roma - Logo Oficial"
+                  width={160}
+                  height={160}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -92,9 +102,10 @@ export const Hero: React.FC<HeroProps> = ({ settings, onExploreMenu }) => {
           <button
             onClick={onExploreMenu}
             id="hero-menu-cta"
+            aria-label="Ver cardápio completo da Pizzaria Mamma Roma"
             className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-[#E52521] to-[#c71c18] hover:from-[#f02f2b] hover:to-[#E52521] text-white font-extrabold text-xs sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl shadow-[#E52521]/40 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#E52521]/50 group"
           >
-            <span className="text-lg sm:text-xl">🍕</span>
+            <span className="text-lg sm:text-xl" aria-hidden="true">🍕</span>
             <span>VER CARDÁPIO COMPLETO</span>
             <ArrowDown className="w-4 h-4 text-white/80 group-hover:translate-y-1 transition-transform" />
           </button>
@@ -103,6 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ settings, onExploreMenu }) => {
           <button
             onClick={handleWhatsApp}
             id="hero-whatsapp-cta"
+            aria-label="Fazer pedido pelo WhatsApp"
             className="w-full sm:w-auto px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#168A45] hover:bg-[#199d4f] text-white font-bold text-xs sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg shadow-[#168A45]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#168A45]/50"
           >
             <MessageCircle className="w-5 h-5 fill-white/20" />

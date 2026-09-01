@@ -62,6 +62,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ settings }) => {
             <button
               onClick={handleWhatsApp}
               id="btn-contact-whatsapp"
+              aria-label="Chamar Pizzaria Mamma Roma no WhatsApp"
               className="w-full py-3.5 rounded-2xl bg-[#168A45] hover:bg-[#199d4f] text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#168A45]/30 active:scale-95 transition-all cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-white/20 shrink-0" />
@@ -87,6 +88,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ settings }) => {
             <a
               href={`tel:${settings.phone}`}
               id="btn-contact-phone"
+              aria-label={`Ligar para Pizzaria Mamma Roma no telefone ${settings.phoneDisplay}`}
               className="w-full py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-white/20 active:scale-95 transition-all cursor-pointer text-center"
             >
               <Phone className="w-4 h-4 text-[#FFD21A] shrink-0" />
@@ -112,6 +114,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ settings }) => {
             <button
               onClick={handleInstagram}
               id="btn-contact-instagram"
+              aria-label="Acessar perfil do Instagram da Pizzaria Mamma Roma"
               className="w-full py-3.5 rounded-2xl bg-[#E52521] hover:bg-[#c71c18] text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#E52521]/30 active:scale-95 transition-all cursor-pointer"
             >
               <Instagram className="w-4 h-4 shrink-0" />

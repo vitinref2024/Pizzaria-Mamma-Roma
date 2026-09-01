@@ -61,11 +61,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           href="#inicio"
           className="flex items-center gap-3 group focus:outline-none"
           id="logo-button"
+          aria-label="Ir para o início da Pizzaria Mamma Roma"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-lg shadow-black/80 border border-[#E52521]/60 group-hover:scale-105 transition-transform bg-black flex items-center justify-center shrink-0">
             <img
               src={settings.logo || '/logo.jpg'}
               alt="Pizzaria Mamma Roma Logo Oficial"
+              width={48}
+              height={48}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
@@ -124,6 +129,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={onOpenCart}
             id="navbar-cart-btn"
+            aria-label={`Ver pedido atual com ${cartCount} ${cartCount === 1 ? 'item' : 'itens'}`}
             className="relative flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#141414] hover:bg-[#1a1a1a] text-white border border-white/10 transition-all shadow-md active:scale-95 cursor-pointer"
           >
             <div className="relative">
@@ -143,6 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={handleDirectWhatsApp}
             id="navbar-whatsapp-cta"
+            aria-label="Fazer pedido diretamente pelo WhatsApp"
             className="hidden sm:flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#168A45] to-[#116b35] hover:from-[#199d4f] hover:to-[#168A45] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#168A45]/30 transition-all hover:scale-105 active:scale-95 cursor-pointer border border-[#168A45]/40"
           >
             <MessageCircle className="w-4 h-4 text-white fill-white/20" />
@@ -153,6 +160,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             id="mobile-menu-toggle"
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            aria-expanded={mobileMenuOpen}
             className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

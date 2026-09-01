@@ -28,6 +28,7 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({
       <button
         onClick={handleScrollToMenu}
         id="mobile-nav-menu-btn"
+        aria-label="Rolar para a seção do Cardápio"
         className="flex-1 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 text-xs font-bold uppercase tracking-wider flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-transform"
       >
         <Utensils className="w-4 h-4 text-[#FFD21A]" />
@@ -38,6 +39,7 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({
       <button
         onClick={onOpenCart}
         id="mobile-nav-cart-btn"
+        aria-label={`Ver carrinho com ${cartCount} itens`}
         className="flex-1 py-2.5 rounded-xl bg-[#181818] hover:bg-[#202020] text-white border border-white/15 text-xs font-bold uppercase tracking-wider flex flex-col items-center justify-center gap-0.5 relative active:scale-95 transition-transform"
       >
         <div className="relative">
@@ -55,6 +57,7 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({
       <button
         onClick={handleWhatsApp}
         id="mobile-nav-whatsapp-btn"
+        aria-label="Abrir WhatsApp da Pizzaria Mamma Roma"
         className="flex-[1.5] py-2.5 rounded-xl bg-[#168A45] hover:bg-[#199d4f] text-white text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-[#168A45]/30 active:scale-95 transition-transform"
       >
         <MessageCircle className="w-4 h-4 fill-white/20" />

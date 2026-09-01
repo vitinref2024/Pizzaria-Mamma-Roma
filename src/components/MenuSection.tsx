@@ -99,8 +99,11 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         <div className="relative h-48 sm:h-52 overflow-hidden bg-black">
           <img
             src={product.image}
-            alt={product.name}
+            alt={`Pizza ${product.name}`}
             loading="lazy"
+            decoding="async"
+            width={400}
+            height={250}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
@@ -172,6 +175,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                 handleOpenCustomizer(product, 'choice');
               }}
               id={`btn-choose-pizza-${product.id}`}
+              aria-label={`Escolher pizza ${product.name} por ${formatCurrency(product.price)}`}
               className="flex-1 py-3 px-3 rounded-xl bg-[#E52521] hover:bg-[#c71c18] text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-[#E52521]/30 active:scale-95 transition-all cursor-pointer border border-[#E52521]/50"
             >
               <ShoppingBag className="w-4 h-4 text-[#FFD21A] shrink-0" />
@@ -186,10 +190,11 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                 handleOpenCustomizer(product, 'half-half');
               }}
               id={`btn-half-pizza-${product.id}`}
+              aria-label={`Montar pizza meia a meia com ${product.name}`}
               title="Montar Meia a Meia com este sabor"
               className="py-3 px-3 rounded-xl bg-white/10 hover:bg-[#FFD21A] hover:text-black text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1 border border-white/15 transition-all cursor-pointer shrink-0 active:scale-95"
             >
-              <span>🌓</span>
+              <span aria-hidden="true">🌓</span>
               <span className="hidden sm:inline">Meia a Meia</span>
             </button>
           </div>
@@ -258,12 +263,13 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         <div className="space-y-4 max-w-4xl mx-auto">
           {/* Search Input */}
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none" aria-hidden="true">
               <Search className="h-5 w-5 text-[#FFD21A]" />
             </div>
             <input
               type="text"
               id="menu-search-input"
+              aria-label="Buscar pizzas por nome ou ingrediente"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Qual pizza você está procurando? (Ex: Calabresa, Mussarela, Frango, Bacon...)"
@@ -272,7 +278,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 pr-4 flex items-center text-white/50 hover:text-white"
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-white/50 hover:text-white cursor-pointer"
+                aria-label="Limpar campo de busca"
                 title="Limpar busca"
               >
                 <X className="w-5 h-5" />
@@ -292,6 +299,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
               </div>
               <button
                 onClick={() => setSearchQuery('')}
+                aria-label="Limpar pesquisa"
                 className="text-xs text-white/60 hover:text-white underline cursor-pointer"
               >
                 Limpar pesquisa
@@ -300,12 +308,15 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
           )}
 
           {/* Category Filter Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar justify-start sm:justify-center">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar justify-start sm:justify-center" role="tablist" aria-label="Categorias do Cardápio">
             {categories.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button
                   key={cat.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={`Filtrar por categoria ${cat.label}`}
                   onClick={() => {
                     onCategoryChange(cat.id);
                     if (cat.id === 'promocoes') {
@@ -325,7 +336,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                       : 'bg-[#141414] text-white/80 hover:bg-[#222222] border border-white/10 hover:border-white/20'
                   }`}
                 >
-                  <span>{cat.icon}</span>
+                  <span aria-hidden="true">{cat.icon}</span>
                   <span>{cat.label}</span>
                 </button>
               );

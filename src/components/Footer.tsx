@@ -19,6 +19,10 @@ export const Footer: React.FC<FooterProps> = ({ settings, onOpenAdmin }) => {
                 <img
                   src={settings.logo || '/logo.jpg'}
                   alt="Pizzaria Mamma Roma Logo"
+                  loading="lazy"
+                  decoding="async"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />

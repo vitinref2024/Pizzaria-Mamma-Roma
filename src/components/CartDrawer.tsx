@@ -95,7 +95,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <div className="w-9 h-9 rounded-full overflow-hidden bg-black border border-[#E52521]/60 flex items-center justify-center shrink-0 shadow-md">
                 <img
                   src={settings.logo || '/logo.jpg'}
-                  alt="Logo"
+                  alt="Pizzaria Mamma Roma Logo"
+                  width={36}
+                  height={36}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -113,6 +117,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <button
               onClick={onClose}
               id="close-cart-drawer-btn"
+              aria-label="Fechar painel do carrinho"
               className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />

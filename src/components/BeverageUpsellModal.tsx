@@ -123,9 +123,12 @@ export const BeverageUpsellModal: React.FC<BeverageUpsellModalProps> = ({
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-black/40 shrink-0 relative border border-white/5">
                       <img
                         src={bev.image}
-                        alt={bev.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        alt={`Bebida ${bev.name}`}
+                        width={96}
+                        height={96}
                         loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         referrerPolicy="no-referrer"
                       />
                       {bev.volume && (

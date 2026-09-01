@@ -73,10 +73,14 @@ export const CombosSection: React.FC<CombosSectionProps> = ({
               className="rounded-3xl bg-[#141414] border-2 border-white/15 hover:border-[#FFD21A] overflow-hidden flex flex-col justify-between shadow-2xl transition-all duration-300 group"
             >
               {/* Image & Price Banner */}
-              <div className="relative h-48 sm:h-56 overflow-hidden">
+              <div className="relative h-48 sm:h-56 overflow-hidden bg-black">
                 <img
                   src={combo.image}
                   alt={combo.title}
+                  loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={350}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/50 to-transparent" />
@@ -129,6 +133,7 @@ export const CombosSection: React.FC<CombosSectionProps> = ({
                 <button
                   onClick={() => handleOrderCombo(combo)}
                   id={`btn-order-combo-${combo.id}`}
+                  aria-label={`Pedir ${combo.title} por ${formatCurrency(combo.price)}`}
                   className="w-full py-3.5 sm:py-4 px-4 rounded-2xl bg-gradient-to-r from-[#E52521] to-[#b81b18] hover:from-[#f02f2b] hover:to-[#E52521] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-[#E52521]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#E52521]"
                 >
                   <ShoppingBag className="w-4 h-4 text-[#FFD21A] shrink-0" />

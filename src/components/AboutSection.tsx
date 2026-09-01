@@ -17,6 +17,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
               <img
                 src={settings.logo || '/logo.jpg'}
                 alt="Pizzaria Mamma Roma Logo"
+                loading="lazy"
+                decoding="async"
+                width={96}
+                height={96}
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />

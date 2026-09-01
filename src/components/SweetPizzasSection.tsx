@@ -95,8 +95,11 @@ export const SweetPizzasSection: React.FC<SweetPizzasSectionProps> = ({
                 <div className="relative h-48 overflow-hidden bg-black">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={`Pizza Doce ${product.name}`}
                     loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={250}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
@@ -140,6 +143,7 @@ export const SweetPizzasSection: React.FC<SweetPizzasSectionProps> = ({
                         handleOpenCustomizer(product, 'choice');
                       }}
                       id={`btn-choose-sweet-${product.id}`}
+                      aria-label={`Escolher pizza doce ${product.name} por ${formatCurrency(product.price)}`}
                       className="flex-1 py-3 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-amber-600/30 active:scale-95 transition-all cursor-pointer border border-amber-500/40"
                     >
                       <ShoppingBag className="w-4 h-4 text-[#FFD21A] shrink-0" />
@@ -153,10 +157,11 @@ export const SweetPizzasSection: React.FC<SweetPizzasSectionProps> = ({
                         handleOpenCustomizer(product, 'half-half');
                       }}
                       id={`btn-half-sweet-${product.id}`}
+                      aria-label={`Montar pizza doce meia a meia com ${product.name}`}
                       title="Montar Meia a Meia com este sabor"
                       className="py-3 px-3 rounded-xl bg-white/10 hover:bg-[#FFD21A] hover:text-black text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1 border border-white/15 transition-all cursor-pointer shrink-0 active:scale-95"
                     >
-                      <span>🌓</span>
+                      <span aria-hidden="true">🌓</span>
                       <span className="hidden sm:inline">Meia a Meia</span>
                     </button>
                   </div>

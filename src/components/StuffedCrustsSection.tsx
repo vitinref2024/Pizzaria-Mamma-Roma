@@ -119,6 +119,7 @@ export const StuffedCrustsSection: React.FC<StuffedCrustsSectionProps> = ({
                     type="button"
                     onClick={() => handleAddCrust(crust)}
                     id={`btn-add-crust-${crust.id}`}
+                    aria-label={`Adicionar borda tradicional ${crust.name} por ${formatCurrency(crust.price)}`}
                     className="px-3.5 py-2 rounded-xl bg-[#E52521] hover:bg-[#c71c18] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-[#E52521]/30 active:scale-95 transition-all cursor-pointer"
                   >
                     <Plus className="w-3.5 h-3.5" />
@@ -193,6 +194,7 @@ export const StuffedCrustsSection: React.FC<StuffedCrustsSectionProps> = ({
                   type="button"
                   onClick={() => handleAddCrust(vulcaoCrust)}
                   id={`btn-add-crust-${vulcaoCrust.id}`}
+                  aria-label={`Adicionar borda especial Vulcão ${vulcaoCrust.name} por ${formatCurrency(vulcaoCrust.price)}`}
                   className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-orange-500 via-red-600 to-[#E52521] hover:from-orange-400 hover:to-[#c71c18] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-xl shadow-red-600/30 active:scale-95 transition-all cursor-pointer border border-orange-400/40"
                 >
                   <Flame className="w-4 h-4 text-[#FFD21A]" />

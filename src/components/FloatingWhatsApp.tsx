@@ -16,6 +16,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ settings }) 
     <button
       onClick={handleClick}
       id="floating-whatsapp-btn"
+      aria-label="Fazer pedido via WhatsApp com a Pizzaria Mamma Roma"
       title="Pedir no WhatsApp"
       className="hidden md:flex fixed bottom-6 right-6 z-40 p-4 rounded-full bg-[#168A45] hover:bg-[#199d4f] text-white shadow-2xl shadow-[#168A45]/50 border-2 border-white/20 items-center gap-2.5 group hover:scale-110 active:scale-95 transition-all cursor-pointer"
     >

@@ -91,8 +91,11 @@ export const BeveragesSection: React.FC<BeveragesSectionProps> = ({
                 <div className="relative h-36 sm:h-44 rounded-2xl overflow-hidden bg-black mb-3">
                   <img
                     src={bev.image}
-                    alt={bev.name}
+                    alt={`Bebida ${bev.name}`}
                     loading="lazy"
+                    decoding="async"
+                    width={300}
+                    height={250}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2 left-2 bg-black/80 px-2 py-0.5 rounded-md text-[10px] font-bold text-white">
@@ -122,17 +125,19 @@ export const BeveragesSection: React.FC<BeveragesSectionProps> = ({
                         type="button"
                         onClick={() => handleQtyChange(bev.id, -1)}
                         className="w-7 h-7 rounded bg-white/5 hover:bg-white/15 text-white flex items-center justify-center cursor-pointer text-xs"
+                        aria-label={`Diminuir quantidade de ${bev.name}`}
                         title="Diminuir"
                       >
                         <Minus className="w-3 h-3" />
                       </button>
-                      <span className="w-6 text-center text-xs font-bold text-white">
+                      <span className="w-6 text-center text-xs font-bold text-white" aria-label={`Quantidade: ${qty}`}>
                         {qty}
                       </span>
                       <button
                         type="button"
                         onClick={() => handleQtyChange(bev.id, 1)}
                         className="w-7 h-7 rounded bg-white/5 hover:bg-white/15 text-white flex items-center justify-center cursor-pointer text-xs"
+                        aria-label={`Aumentar quantidade de ${bev.name}`}
                         title="Aumentar"
                       >
                         <Plus className="w-3 h-3" />
@@ -143,6 +148,7 @@ export const BeveragesSection: React.FC<BeveragesSectionProps> = ({
                       type="button"
                       onClick={() => handleAddBeverage(bev)}
                       id={`btn-add-bev-${bev.id}`}
+                      aria-label={`Adicionar ${qty}x ${bev.name} por ${formatCurrency(currentTotal)}`}
                       className="flex-1 py-2 px-2 rounded-xl bg-[#E52521] hover:bg-[#c71c18] text-white font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1 shadow-md active:scale-95 transition-all cursor-pointer truncate"
                     >
                       <Plus className="w-3.5 h-3.5 shrink-0" />

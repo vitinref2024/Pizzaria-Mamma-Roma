@@ -230,6 +230,7 @@ export const PromotionsSection: React.FC<PromotionsSectionProps> = ({
                 <button
                   onClick={() => handleOrderPromo(promo)}
                   id={`btn-order-${promo.id}`}
+                  aria-label={`Pedir promoção ${promo.title} sabor ${currentFlavor} por ${formatCurrency(totalPrice)}`}
                   className="w-full py-3.5 sm:py-4 px-4 rounded-2xl bg-gradient-to-r from-[#E52521] to-[#b81b18] hover:from-[#f02f2b] hover:to-[#E52521] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#E52521]/40 transition-all hover:scale-105 active:scale-95 cursor-pointer border border-[#E52521]"
                 >
                   <ShoppingBag className="w-4 h-4 text-[#FFD21A] shrink-0" />
